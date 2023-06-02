@@ -12,7 +12,7 @@ public class GamePanel extends JPanel implements ActionListener {
     static final int DELAY = 75;
     final int x[] = new int[GAME_UNITS];
     final int y[] = new int[GAME_UNITS];
-    int bodyParts = 6;
+    int bodyParts = 1bod;
     int applesEaten;
     int appleX;
     int appleY;
@@ -63,7 +63,7 @@ public class GamePanel extends JPanel implements ActionListener {
                     g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
                 }
             }
-            g.setColor(Color.red);
+            g.setColor(Color.white);
             g.setFont(new Font("Comic Sans MS", Font.ITALIC, 40));
             FontMetrics metrics = getFontMetrics(g.getFont());
             g.drawString("Score: " + applesEaten, (SCREEN_WIDTH - metrics.stringWidth("Score: " + applesEaten))/2,
@@ -113,7 +113,7 @@ public class GamePanel extends JPanel implements ActionListener {
         //checks head collides with body
         for (int i = bodyParts; i>0; i--){
             if ((x[0] == x[i])&&(y[0] == y[i])){
-                running =false;
+                running = false;
             }
         }
         //check if head collides left border
@@ -144,6 +144,7 @@ public class GamePanel extends JPanel implements ActionListener {
         g.setFont(new Font("Comic Sans MS", Font.BOLD, 75));
         FontMetrics metrics1 = getFontMetrics(g.getFont());
         g.drawString("GAME OVER", (SCREEN_WIDTH - metrics1.stringWidth("GAME OVER"))/2, SCREEN_HEIGHT/2);
+        g.setColor(Color.white);
         g.setFont(new Font("Comic Sans MS", Font.ITALIC, 40));
         FontMetrics metrics2 = getFontMetrics(g.getFont());
         g.drawString("Score: " + applesEaten, (SCREEN_WIDTH - metrics2.stringWidth("Score: " + applesEaten))/2,
